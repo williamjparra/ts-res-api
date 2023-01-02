@@ -22,9 +22,13 @@ const loginUser = async ({email, password}: Auth) => {
 
     if(!isCorrect) return "PASSWORD_INCORRECT"
 
-    const token = signToken(checkIs.email)
+    const token = await signToken(checkIs.email)
+    const data = {
+        user: checkIs,
+        token
+    }
 
-    return token
+    return data
 }
 
 export { registerNewUser, loginUser }

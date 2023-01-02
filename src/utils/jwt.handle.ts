@@ -6,6 +6,9 @@ const signToken = async (id: string) => {
     return jwt
 }
 
-const verifyToken = async () => {}
+const verifyToken = (jwt: string) => {
+    const isOk = verify(jwt, JWT_SECRET)
+    return isOk
+}
 
 export { signToken, verifyToken }
